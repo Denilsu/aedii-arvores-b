@@ -61,11 +61,11 @@ public class LoaderBiblioteca {
         double endTime = System.nanoTime();
         double durationTotal = (endTime - startTime)/1_000_000;
         double durationMedia = (durationTotal/count);
-        System.out.printf("Tempo de insercao Total: %d ms\nTempo de insercao MEDIO: %d nanosegundos%n", durationTotal, durationMedia);
+        System.out.printf("Tempo de insercao Total: %f ms\nTempo de insercao MEDIO: %f ms%n", durationTotal, durationMedia);
     }
     public static void removerLivros(BTreeBiblioteca tree, String filePath) {
-        long startTime = System.nanoTime();
-        long count = 0;
+        double startTime = System.nanoTime();
+        int count = 0;
         try (Scanner scanner = new Scanner(new File(filePath), "UTF-8")) {
             while (scanner.hasNextLine()) {
                 String idLine = scanner.nextLine().trim();
@@ -110,9 +110,9 @@ public class LoaderBiblioteca {
             return;
         }
 
-        long endTime = System.nanoTime();
-        long durationTotal = (endTime - startTime)/1_000_000;
-        long durationMedia = ((endTime - startTime)/count);
-        System.out.printf("\nTempo de remocao Total: %d ms\nTempo de remocao MEDIO: %d nanosegundos%n", durationTotal, durationMedia);
+        double endTime = System.nanoTime();
+        double durationTotal = (endTime - startTime)/1_000_000;
+        double durationMedia = (durationTotal/count);
+        System.out.printf("\nTempo de remocao Total: %f ms\nTempo de remocao MEDIO: %f ms%n", durationTotal, durationMedia);
     }
 }

@@ -70,7 +70,7 @@ public class BTreeBiblioteca {
     }
 
     public static void main(String[] args) {
-        long idAlvo = 50000L;
+        long idAlvo = 500L;
         Livro livro;
         // Validação de parâmetros
         if (args.length != 1) {
@@ -80,15 +80,15 @@ public class BTreeBiblioteca {
         String filePath = args[0];
 
         //Cria a árvore B que vai armazenar os livros
-        BTreeBiblioteca tree = new BTreeBiblioteca(10); // grau mínimo t = 10
+        BTreeBiblioteca tree = new BTreeBiblioteca(25); // grau mínimo t = 25 
         LoaderBiblioteca.inserirLivros(tree, filePath);//Carrega todos os livros do .txt para a árvore
 
         //Exemplo de busca para verificar que os livros foram inseridos
-        long startTime = System.nanoTime();
+        double startTime = System.nanoTime();
         livro = tree.search(idAlvo);
-        long endTime = System.nanoTime();
-        long durationTotal = (endTime - startTime);
-        System.out.printf("\nTempo de busca: %d ns%n", durationTotal);
+        double endTime = System.nanoTime();
+        double durationTotal = (endTime - startTime)/1_000_000;
+        System.out.printf("\nTempo de busca: %f ms%n", durationTotal);
 
         if (livro != null) {
             System.out.println("Encontrado: " + livro);
